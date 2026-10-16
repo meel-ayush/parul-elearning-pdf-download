@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Desktop Setup (Windows, Mac & Linux) — Parul University eLearning PDF Download</title>
+  <link rel="icon" type="image/png" href="icons/icon-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #080C14;
+      --card-bg: rgba(18, 24, 38, 0.8);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(26, 34, 52, 0.95);
+      --accent-blue: #38BDF8;
+      --accent-purple: #818CF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(129, 140, 248, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .ambient-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(320px, 85vw, 980px);
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(56, 189, 248, 0.16), transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 36px) clamp(40px, 6vw, 80px);
+      position: relative;
+      z-index: 1;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(24px, 4vw, 36px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .nav-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero {
+      text-align: center;
+      margin-bottom: clamp(28px, 4vw, 44px);
+    }
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-blue);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 18px;
+    }
+    .browser-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+    .downloads-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 18px;
+      margin-bottom: clamp(32px, 5vw, 48px);
+    }
+    .download-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: clamp(22px, 3.5vw, 28px);
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s;
+    }
+    .download-card:hover {
+      border-color: rgba(56, 189, 248, 0.35);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .card-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+    .card-version-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #6EE7B7;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 3px 10px;
+      border-radius: 999px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 20px;
+    }
+    .zip-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 13px 20px;
+      border-radius: 14px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 4px 18px rgba(37, 99, 235, 0.4);
+      transition: all 0.2s;
+    }
+    .zip-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(37, 99, 235, 0.5);
+    }
+    .zip-btn.firefox {
+      background: linear-gradient(135deg, #EA580C 0%, #C2410C 100%);
+      box-shadow: 0 4px 18px rgba(234, 88, 12, 0.4);
+    }
+    .zip-btn.firefox:hover {
+      box-shadow: 0 6px 24px rgba(234, 88, 12, 0.5);
+    }
+    .zip-btn.safari {
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      box-shadow: 0 4px 18px rgba(2, 132, 199, 0.4);
+    }
+    .zip-btn.safari:hover {
+      box-shadow: 0 6px 24px rgba(2, 132, 199, 0.5);
+    }
+    .guide-section {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: clamp(22px, 4vw, 36px);
+      margin-bottom: clamp(32px, 5vw, 48px);
+      backdrop-filter: blur(12px);
+    }
+    .guide-header {
+      margin-bottom: 24px;
+    }
+    .guide-title {
+      font-size: clamp(1.3rem, 2.8vw, 1.65rem);
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 6px;
+    }
+    .guide-subtitle {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+    .browser-toggle-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 6px;
+      border-radius: 14px;
+      margin-bottom: 24px;
+    }
+    .toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .toggle-btn.active {
+      background: #2563EB;
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+    }
+    .guide-panel {
+      display: none;
+    }
+    .guide-panel.active {
+      display: block;
+    }
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .step-card {
+      background: rgba(0, 0, 0, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 24px);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #2563EB;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .highlight-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38BDF8;
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+    }
+    .tip-card {
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-top: 14px;
+      font-size: 0.86rem;
+      color: #BAE6FD;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .creator-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(18, 24, 38, 0.95) 100%);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 36px);
+      margin-bottom: clamp(28px, 4vw, 44px);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+    .creator-badge {
+      display: inline-block;
+      background: rgba(129, 140, 248, 0.15);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #A5B4FC;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .creator-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .creator-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .creator-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+    }
+    .creator-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pill-github {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+    .pill-github:hover {
+      background: #24292F;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-linkedin {
+      background: rgba(10, 102, 194, 0.15);
+      border: 1px solid rgba(10, 102, 194, 0.4);
+      color: #60A5FA;
+    }
+    .pill-linkedin:hover {
+      background: #0A66C2;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-instagram {
+      background: rgba(225, 48, 108, 0.15);
+      border: 1px solid rgba(225, 48, 108, 0.4);
+      color: #F472B6;
+    }
+    .pill-instagram:hover {
+      background: #E1306C;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-issue {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+    }
+    .pill-issue:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="page-wrapper">
+    <div class="top-nav">
+      <a href="index.html" class="nav-btn">← All Devices</a>
+      <div class="nav-group">
+        <a href="android.html" class="nav-btn">Android Guide →</a>
+        <a href="ios.html" class="nav-btn">iPhone & iPad Guide →</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="platform-pill">💻 Desktop Computers (Windows, Mac & Linux)</div>
+      <h1 class="hero-title">Download Course Material on <span>Desktop</span></h1>
+      <p class="hero-subtitle">
+        Install the lightweight browser extension on Google Chrome, Brave, Microsoft Edge, Mozilla Firefox, or Apple Safari. Automatically injects a floating 1-click Download HUD directly onto Parul University classroom lectures.
+      </p>
+      <div class="browser-tags">
+        <span class="tag">Google Chrome</span>
+        <span class="tag">Brave Browser</span>
+        <span class="tag">Microsoft Edge</span>
+        <span class="tag">Mozilla Firefox</span>
+        <span class="tag">Apple Safari (macOS)</span>
+        <span class="tag">Opera</span>
+      </div>
+    </div>
+
+    <div class="downloads-section">
+      <div class="download-card">
+        <div>
+          <div class="card-head">
+            <span class="card-icon">🌐</span>
+            <span class="card-version-badge">Manifest V3</span>
+          </div>
+          <h2 class="card-title">Chrome, Brave & Edge</h2>
+          <p class="card-desc">
+            Production extension package for all Chromium-based desktop browsers on Windows, Mac, and Linux.
+          </p>
+        </div>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/releases/download/v1.0.0/parul-elearning-pdf-download-chrome.zip" download class="zip-btn">
+          ⬇️ Download Extension (.zip)
+        </a>
+      </div>
+
+      <div class="download-card">
+        <div>
+          <div class="card-head">
+            <span class="card-icon">🦊</span>
+            <span class="card-version-badge">Gecko MV3</span>
+          </div>
+          <h2 class="card-title">Mozilla Firefox</h2>
+          <p class="card-desc">
+            Production Gecko extension built for Mozilla Firefox on Windows, Mac, and Linux.
+          </p>
+        </div>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/releases/download/v1.0.0/parul-elearning-pdf-download-firefox.zip" download class="zip-btn firefox">
+          ⬇️ Download Firefox (.zip)
+        </a>
+      </div>
+
+      <div class="download-card">
+        <div>
+          <div class="card-head">
+            <span class="card-icon">🧭</span>
+            <span class="card-version-badge">WebKit MV3</span>
+          </div>
+          <h2 class="card-title">Apple Safari (macOS)</h2>
+          <p class="card-desc">
+            Production WebKit extension package configured for Apple Safari on macOS Sonoma, Ventura, and Sequoia.
+          </p>
+        </div>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/releases/download/v1.0.0/parul-elearning-pdf-download-safari.zip" download class="zip-btn safari">
+          ⬇️ Download Safari (.zip)
+        </a>
+      </div>
+    </div>
+
+    <div class="guide-section">
+      <div class="guide-header">
+        <h2 class="guide-title">Step-by-Step Installation Walkthrough</h2>
+        <p class="guide-subtitle">Choose your browser below to view the simple 1-minute setup steps:</p>
+      </div>
+
+      <div class="browser-toggle-bar">
+        <button id="btnChromium" class="toggle-btn active" onclick="switchGuide('chromium')">
+          🌐 Chrome, Brave & Edge
+        </button>
+        <button id="btnFirefox" class="toggle-btn" onclick="switchGuide('firefox')">
+          🦊 Mozilla Firefox
+        </button>
+        <button id="btnSafari" class="toggle-btn" onclick="switchGuide('safari')">
+          🧭 Apple Safari (macOS)
+        </button>
+      </div>
+
+      <div id="panelChromium" class="guide-panel active">
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Download & Extract the ZIP File</div>
+            </div>
+            <div class="step-desc">
+              Click the blue <strong>Download Extension (.zip)</strong> button above. When downloaded, right-click the file, choose <strong>Extract All...</strong>, and extract the folder to a permanent location (e.g. your <span class="highlight-pill">Documents</span> folder).
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Open the Extensions Management Page</div>
+            </div>
+            <div class="step-desc">
+              In Google Chrome or Brave, open a new tab, type <span class="highlight-pill">chrome://extensions</span> into the address bar, and press Enter. (If you use Microsoft Edge, navigate to <span class="highlight-pill">edge://extensions</span>).
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Enable Developer Mode</div>
+            </div>
+            <div class="step-desc">
+              Look at the top-right corner of the Extensions page. Toggle the <strong>Developer mode</strong> switch to <strong>ON</strong>. A new action bar will appear with three buttons.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Click "Load Unpacked" & Select the Folder</div>
+            </div>
+            <div class="step-desc">
+              Click the <strong>Load unpacked</strong> button on the top-left toolbar. In the file explorer, navigate into your extracted folder and click <strong>Select Folder</strong>.
+            </div>
+            <div class="tip-card">
+              <span>💡</span>
+              <div>
+                <strong>Pin the Extension:</strong> Click the puzzle icon (🧩) next to your browser's address bar and click the pin icon next to <em>Parul eLearning PDF Download</em> so it stays visible!
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">5</div>
+              <div class="step-title">Open Any Lecture & Download!</div>
+            </div>
+            <div class="step-desc">
+              Navigate to your course portal on <span class="highlight-pill">elearning.paruluniversity.ac.in</span>. Whenever a lecture document or presentation is open, the floating blue <strong>Download PDF</strong> button appears automatically in the bottom-right corner!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panelFirefox" class="guide-panel">
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Download & Extract the Firefox ZIP</div>
+            </div>
+            <div class="step-desc">
+              Click the orange <strong>Download Firefox (.zip)</strong> button above. Right-click the downloaded archive and extract it on your computer.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Open Firefox Debugging</div>
+            </div>
+            <div class="step-desc">
+              In Mozilla Firefox, type <span class="highlight-pill">about:debugging#/runtime/this-firefox</span> into the address bar and press Enter.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Load Temporary Add-on</div>
+            </div>
+            <div class="step-desc">
+              Click the <strong>Load Temporary Add-on...</strong> button. In the file picker, select the <span class="highlight-pill">manifest.json</span> file located inside your extracted folder.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Start Studying Offline!</div>
+            </div>
+            <div class="step-desc">
+              Open your course page on Parul University eLearning. The floating HUD triggers automatically whenever a course document is detected!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="panelSafari" class="guide-panel">
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Download & Extract the Safari ZIP</div>
+            </div>
+            <div class="step-desc">
+              Click the blue <strong>Download Safari (.zip)</strong> button above. Double-click the downloaded archive to extract it on your Mac.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Enable Safari Developer Menu</div>
+            </div>
+            <div class="step-desc">
+              Open Apple Safari, click <strong>Safari</strong> in the top menu bar &gt; <strong>Settings</strong> (or Preferences) &gt; <strong>Advanced</strong> tab. Check the box for <strong>"Show features for web developers"</strong> (or "Show Develop menu").
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Allow Unsigned Extensions</div>
+            </div>
+            <div class="step-desc">
+              In Safari's top menu bar, click the newly visible <strong>Develop</strong> menu, and ensure <strong>"Allow Unsigned Extensions"</strong> is enabled.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">4</div>
+              <div class="step-title">Activate in Safari Extensions</div>
+            </div>
+            <div class="step-desc">
+              In Safari Settings &gt; <strong>Extensions</strong>, check the box next to <em>Parul eLearning PDF Download</em>. Open any course lecture on <span class="highlight-pill">elearning.paruluniversity.ac.in</span> and the download button triggers automatically!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creator-card">
+      <div class="creator-badge">🚀 Lead Developer</div>
+      <h3 class="creator-name">Ayush Meel</h3>
+      <p class="creator-bio">CS Undergrad • Cisco CyberOps Certified • Creator of Parul eLearning PDF Download</p>
+      <p class="creator-text">
+        Built with care to help fellow Parul University students study offline, save lectures effortlessly, and never lose access to their course documents. If this tool saves your study time, consider supporting the project:
+      </p>
+      <div class="creator-pills">
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download" target="_blank" rel="noopener noreferrer" class="pill-btn pill-github">⭐ Star on GitHub</a>
+        <a href="https://www.linkedin.com/in/ayushmeel" target="_blank" rel="noopener noreferrer" class="pill-btn pill-linkedin">💼 Connect on LinkedIn</a>
+        <a href="https://www.instagram.com/meel_ayush" target="_blank" rel="noopener noreferrer" class="pill-btn pill-instagram">📸 Follow on Instagram</a>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/issues" target="_blank" rel="noopener noreferrer" class="pill-btn pill-issue">💬 Report Bug / Feedback</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Independent community utility for Parul University students. <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function switchGuide(browser) {
+      var btnChromium = document.getElementById("btnChromium");
+      var btnFirefox = document.getElementById("btnFirefox");
+      var btnSafari = document.getElementById("btnSafari");
+      var panelChromium = document.getElementById("panelChromium");
+      var panelFirefox = document.getElementById("panelFirefox");
+      var panelSafari = document.getElementById("panelSafari");
+      if (browser === "chromium") {
+        btnChromium.classList.add("active");
+        btnFirefox.classList.remove("active");
+        btnSafari.classList.remove("active");
+        panelChromium.classList.add("active");
+        panelFirefox.classList.remove("active");
+        panelSafari.classList.remove("active");
+      } else if (browser === "firefox") {
+        btnFirefox.classList.add("active");
+        btnChromium.classList.remove("active");
+        btnSafari.classList.remove("active");
+        panelFirefox.classList.add("active");
+        panelChromium.classList.remove("active");
+        panelSafari.classList.remove("active");
+      } else {
+        btnSafari.classList.add("active");
+        btnChromium.classList.remove("active");
+        btnFirefox.classList.remove("active");
+        panelSafari.classList.add("active");
+        panelChromium.classList.remove("active");
+        panelFirefox.classList.remove("active");
+      }
+    }
+  </script>
+</body>
+</html>
