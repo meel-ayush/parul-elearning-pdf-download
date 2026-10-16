@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Privacy Policy & Legal Terms — Parul eLearning PDF Download</title>
+    <link rel="icon" type="image/png" href="icons/icon-128.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg-dark: #080c14;
+        --card-bg: rgba(18, 24, 38, 0.85);
+        --card-border: rgba(255, 255, 255, 0.08);
+        --accent-blue: #38bdf8;
+        --accent-purple: #818cf8;
+        --accent-emerald: #10b981;
+        --text-main: #f8fafc;
+        --text-muted: #94a3b8;
+        --text-dim: #64748b;
+        --glow-blue: rgba(56, 189, 248, 0.18);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      body {
+        background-color: var(--bg-dark);
+        background-image:
+          radial-gradient(
+            circle at 10% 10%,
+            rgba(99, 102, 241, 0.12) 0%,
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at 90% 20%,
+            rgba(56, 189, 248, 0.1) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 50% 85%,
+            rgba(16, 185, 129, 0.08) 0%,
+            transparent 50%
+          );
+        background-attachment: fixed;
+        color: var(--text-main);
+        font-family:
+          "Plus Jakarta Sans",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        min-height: 100vh;
+        line-height: 1.7;
+      }
+
+      .ambient-glow {
+        position: absolute;
+        top: -100px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: clamp(280px, 80vw, 680px);
+        height: 260px;
+        background: radial-gradient(
+          ellipse,
+          rgba(56, 189, 248, 0.16),
+          transparent 70%
+        );
+        filter: blur(80px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 920px;
+        margin: 0 auto;
+        padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 24px)
+          clamp(40px, 8vw, 80px);
+        position: relative;
+        z-index: 1;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 28px;
+        border-bottom: 1px solid var(--card-border);
+        margin-bottom: 32px;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .nav-logo {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px var(--glow-blue);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        background: #0f172a;
+        object-fit: contain;
+      }
+
+      .nav-title {
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--card-border);
+        color: var(--text-main);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn-back:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .policy-card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: clamp(16px, 4vw, 24px);
+        padding: clamp(20px, 5vw, 36px);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        margin-bottom: 32px;
+      }
+
+      .policy-title {
+        font-size: clamp(1.8rem, 5vw, 2.4rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        margin-bottom: 8px;
+        background: linear-gradient(135deg, #ffffff 20%, #94a3b8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .policy-meta {
+        color: var(--text-dim);
+        font-size: 0.82rem;
+        margin-bottom: 28px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .policy-section {
+        margin-bottom: 28px;
+      }
+
+      .policy-section h2 {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .policy-section p {
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        margin-bottom: 10px;
+        line-height: 1.65;
+      }
+
+      .policy-section ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        margin-bottom: 10px;
+      }
+
+      .policy-section li {
+        margin-bottom: 6px;
+      }
+
+      .highlight-box {
+        background: rgba(56, 189, 248, 0.08);
+        border: 1px solid rgba(56, 189, 248, 0.2);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 14px 0;
+        font-size: 0.85rem;
+        color: #bae6fd;
+        line-height: 1.6;
+      }
+
+      .disclaimer-box {
+        background: rgba(245, 158, 11, 0.08);
+        border: 1px solid rgba(245, 158, 11, 0.22);
+        border-radius: 12px;
+        padding: 16px;
+        margin: 14px 0;
+        font-size: 0.84rem;
+        color: #fde68a;
+        line-height: 1.6;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--text-dim);
+        font-size: 0.8rem;
+        padding-top: 16px;
+        border-top: 1px solid var(--card-border);
+      }
+
+      footer a {
+        color: var(--accent-blue);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient-glow"></div>
+
+    <div class="container">
+      <header>
+        <a href="index.html" class="nav-brand">
+          <img src="icons/icon-128.png" alt="Logo" class="nav-logo" />
+          <div class="nav-title">Parul eLearning PDF Download</div>
+        </a>
+        <a href="index.html" class="btn-back">← Back to Setup</a>
+      </header>
+
+      <div class="policy-card">
+        <h1 class="policy-title">Privacy Policy & Terms</h1>
+        <div class="policy-meta">
+          Effective Date: October 13, 2026 • Lead Developer:
+          <strong>Ayush Meel</strong> • License: CC BY-NC 4.0
+        </div>
+
+        <div class="policy-section">
+          <h2>1. Independent Unofficial Status</h2>
+          <p>
+            <strong>Parul eLearning PDF Download</strong> is an independent,
+            non-commercial open-source educational utility developed solely by
+            Ayush Meel.
+          </p>
+          <p>
+            This utility is
+            <strong
+              >not affiliated with, endorsed by, authorized by, sponsored by, or
+              maintained by Parul University</strong
+            >
+            or any of its subsidiaries. All references to "Parul University" or
+            its eLearning domain are used strictly under nominative fair use to
+            describe the operational technical compatibility of the tool.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2>2. Our Absolute Commitment: Zero Data Collection</h2>
+          <div class="highlight-box">
+            <strong>🔒 100% Client-Side Privacy:</strong> This tool collects,
+            logs, transmits, and stores <strong>ZERO personal data</strong>.
+            Everything operates entirely within your own local browser session.
+          </div>
+          <ul>
+            <li>
+              <strong>No Personal Information:</strong> We do not collect
+              student names, roll numbers, credentials, email addresses, or
+              phone numbers.
+            </li>
+            <li>
+              <strong>No Browsing History:</strong> The tool does not monitor,
+              track, or record visited URLs or history.
+            </li>
+            <li>
+              <strong>No Analytics or Trackers:</strong> Zero integration with
+              Google Analytics, tracking cookies, telemetry beacons, or
+              advertising networks.
+            </li>
+            <li>
+              <strong>No Remote Servers:</strong> The tool never communicates
+              with external third-party cloud servers. All requests remain
+              strictly between your browser and the official university portal.
+            </li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>3. Authentication & Session Security</h2>
+          <p>
+            The utility never inspects, captures, or exports your session
+            cookies or password credentials. When a document download is
+            initiated, it utilizes the ambient authenticated session already
+            active in your browser.
+          </p>
+        </div>
+
+        <div class="policy-section">
+          <h2>4. Disclaimer of Warranties & Limitation of Liability</h2>
+          <div class="disclaimer-box">
+            <strong>⚠️ Limitation of Liability:</strong> This tool and its
+            scripts are provided strictly on an
+            <strong>"AS IS" and "AS AVAILABLE"</strong> basis, without warranty
+            of any kind, express or implied.
+          </div>
+          <p>
+            Under Section 5 of the Creative Commons Attribution-NonCommercial
+            4.0 International License:
+          </p>
+          <ul>
+            <li>
+              The author and licensor (<strong>Ayush Meel</strong>) shall
+              <strong>NOT be held liable</strong> for any damages, academic
+              consequences, account actions, portal downtimes, data loss, or
+              device issues arising from the use or inability to use this
+              software.
+            </li>
+            <li>
+              Users assume full and exclusive responsibility for their
+              compliance with their institution's acceptable use policies.
+            </li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>5. Intellectual Property, Licensing & Mandatory Author Credit</h2>
+          <p>
+            This software, its source code, browser extensions, and bookmarklet
+            scripts are licensed under the
+            <strong
+              >Creative Commons Attribution-NonCommercial 4.0 International
+              Public License (CC BY-NC 4.0)</strong
+            >.
+          </p>
+          <div
+            class="highlight-box"
+            style="
+              background: rgba(99, 102, 241, 0.08);
+              border-color: rgba(99, 102, 241, 0.25);
+              color: #c7d2fe;
+            "
+          >
+            <strong>📋 Mandatory Attribution Requirement:</strong> Anyone
+            copying, adapting, remixing, or redistributing this software or
+            script
+            <strong
+              >MUST provide clear, prominent credit to the author (Ayush Meel /
+              meel-ayush)</strong
+            >
+            and include a direct link back to the license and source repository.
+          </div>
+          <ul>
+            <li>
+              <strong>Non-Commercial Clause:</strong> Commercial use, resale,
+              repackaging into paid products, or monetizing this tool is
+              strictly prohibited without prior written consent.
+            </li>
+            <li>
+              <strong>Personal & Academic Study:</strong> Enrolled students are
+              granted full permission to use and study the tool for personal,
+              non-commercial offline revision.
+            </li>
+            <li>
+              <strong>Commercial Inquiries:</strong> To obtain a separate
+              commercial license, contact the author directly via LinkedIn or
+              Instagram.
+            </li>
+          </ul>
+        </div>
+
+        <div class="policy-section">
+          <h2>6. Developer Contact</h2>
+          <p>
+            For questions, technical feedback, or commercial licensing
+            inquiries, contact the author:
+          </p>
+          <ul>
+            <li>
+              Instagram:
+              <a
+                href="https://www.instagram.com/meel_ayush"
+                target="_blank"
+                style="color: var(--accent-blue)"
+                >@meel_ayush</a
+              >
+            </li>
+            <li>
+              GitHub:
+              <a
+                href="https://github.com/meel-ayush"
+                target="_blank"
+                style="color: var(--accent-blue)"
+                >@meel-ayush</a
+              >
+            </li>
+            <li>
+              LinkedIn:
+              <a
+                href="https://www.linkedin.com/in/ayushmeel"
+                target="_blank"
+                style="color: var(--accent-blue)"
+                >ayushmeel</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <footer>
+        <p style="margin-bottom: 6px">
+          © 2026 Ayush Meel. Licensed under
+          <a
+            href="https://creativecommons.org/licenses/by-nc/4.0/"
+            target="_blank"
+            >CC BY-NC 4.0</a
+          >.
+        </p>
+        <p style="color: #64748b">
+          An independent student project. Not affiliated with Parul University.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

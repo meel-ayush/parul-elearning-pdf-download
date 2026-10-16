@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Parul eLearning PDF Download — Official Universal Access Portal</title>
+  <link rel="icon" type="image/png" href="icons/icon-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #080C14;
+      --card-bg: rgba(18, 24, 38, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(26, 34, 52, 0.95);
+      --accent-blue: #38BDF8;
+      --accent-purple: #818CF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+      --glow-blue: rgba(56, 189, 248, 0.16);
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+    }
+    .ambient-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(320px, 85vw, 980px);
+      height: 320px;
+      background: radial-gradient(ellipse, rgba(56, 189, 248, 0.16), transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(24px, 4vw, 48px) clamp(16px, 4vw, 36px) clamp(40px, 6vw, 80px);
+      position: relative;
+      z-index: 1;
+      flex: 1;
+    }
+    header {
+      text-align: center;
+      margin-bottom: clamp(32px, 5vw, 56px);
+    }
+    .brand-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .brand-logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0F172A;
+      object-fit: cover;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 20%, #94A3B8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #38BDF8 0%, #818CF8 50%, #C084FC 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .devices-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+      gap: clamp(18px, 2.5vw, 28px);
+      margin-bottom: clamp(28px, 4vw, 44px);
+    }
+    .device-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: clamp(22px, 3.5vw, 32px);
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+    }
+    .device-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(56, 189, 248, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .device-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.4);
+      background: var(--card-hover);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    }
+    .device-card:hover::before {
+      opacity: 1;
+    }
+    .device-card.android:hover {
+      border-color: rgba(52, 211, 153, 0.45);
+    }
+    .device-card.android::before {
+      background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.5), transparent);
+    }
+    .card-icon {
+      font-size: 2.4rem;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+    .card-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+      letter-spacing: -0.02em;
+    }
+    .card-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .card-tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+    .card-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--accent-blue);
+      margin-top: auto;
+    }
+    .device-card.android .card-action {
+      color: #34D399;
+    }
+    .creator-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(18, 24, 38, 0.95) 100%);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 36px);
+      margin-bottom: clamp(28px, 4vw, 44px);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+    .creator-badge {
+      display: inline-block;
+      background: rgba(129, 140, 248, 0.15);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #A5B4FC;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .creator-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .creator-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .creator-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+    }
+    .creator-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pill-github {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+    .pill-github:hover {
+      background: #24292F;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-linkedin {
+      background: rgba(10, 102, 194, 0.15);
+      border: 1px solid rgba(10, 102, 194, 0.4);
+      color: #60A5FA;
+    }
+    .pill-linkedin:hover {
+      background: #0A66C2;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-instagram {
+      background: rgba(225, 48, 108, 0.15);
+      border: 1px solid rgba(225, 48, 108, 0.4);
+      color: #F472B6;
+    }
+    .pill-instagram:hover {
+      background: #E1306C;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-issue {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+    }
+    .pill-issue:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      align-items: center;
+    }
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover {
+      color: var(--accent-blue);
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="page-wrapper">
+    <header>
+      <div class="brand-wrap">
+        <img src="logo.png" alt="Parul PDF Downloader" class="brand-logo">
+      </div>
+      <h1 class="hero-title">Download Course Material on <span>Any Device</span></h1>
+      <p class="hero-subtitle">Bypass locked LMS viewers and access your lecture slides, syllabus booklets, and reference documents across phone, tablet, or PC.</p>
+    </header>
+
+    <div class="devices-grid">
+      <a href="android.html" class="device-card android">
+        <div>
+          <span class="card-icon">🤖</span>
+          <h2 class="card-title">Android Devices</h2>
+          <p class="card-desc">Direct background download to your native Downloads folder with zero tabs opened. Seamlessly integrates into any mobile browser.</p>
+          <div class="card-tags">
+            <span class="card-tag">Chrome Mobile</span>
+            <span class="card-tag">Brave</span>
+            <span class="card-tag">Opera</span>
+            <span class="card-tag">Samsung Internet</span>
+          </div>
+        </div>
+        <div class="card-action">
+          Open Android Setup Guide →
+        </div>
+      </a>
+
+      <a href="ios.html" class="device-card">
+        <div>
+          <span class="card-icon">🍎</span>
+          <h2 class="card-title">iPhone & iPad</h2>
+          <p class="card-desc">Choose between the official 1-Tap Apple Shortcut for Safari Share Sheet, or the zero-app Bookmarklet for Safari and Chrome on iOS.</p>
+          <div class="card-tags">
+            <span class="card-tag">Apple Shortcut</span>
+            <span class="card-tag">Mobile Safari</span>
+            <span class="card-tag">Chrome iOS</span>
+            <span class="card-tag">iOS 15 – 18</span>
+          </div>
+        </div>
+        <div class="card-action">
+          Open iPhone & iPad Guide →
+        </div>
+      </a>
+
+      <a href="desktop.html" class="device-card">
+        <div>
+          <span class="card-icon">💻</span>
+          <h2 class="card-title">Desktop (Windows, Mac, Linux)</h2>
+          <p class="card-desc">Production browser extension injecting a floating 1-click Download HUD directly on Parul University classroom lectures.</p>
+          <div class="card-tags">
+            <span class="card-tag">Google Chrome</span>
+            <span class="card-tag">Brave</span>
+            <span class="card-tag">Safari</span>
+            <span class="card-tag">Firefox</span>
+            <span class="card-tag">MS Edge</span>
+          </div>
+        </div>
+        <div class="card-action">
+          Open Desktop Setup Guide →
+        </div>
+      </a>
+    </div>
+
+    <div class="creator-card">
+      <div class="creator-badge">🚀 Lead Developer</div>
+      <h3 class="creator-name">Ayush Meel</h3>
+      <p class="creator-bio">CS Undergrad • Cisco CyberOps Certified • Creator of Parul eLearning PDF Download</p>
+      <p class="creator-text">
+        Built with care to help fellow Parul University students study offline, save lectures effortlessly, and never lose access to their course documents. If this tool saves your study time, consider supporting the project:
+      </p>
+      <div class="creator-pills">
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download" target="_blank" rel="noopener noreferrer" class="pill-btn pill-github">⭐ Star on GitHub</a>
+        <a href="https://www.linkedin.com/in/ayushmeel" target="_blank" rel="noopener noreferrer" class="pill-btn pill-linkedin">💼 Connect on LinkedIn</a>
+        <a href="https://www.instagram.com/meel_ayush" target="_blank" rel="noopener noreferrer" class="pill-btn pill-instagram">📸 Follow on Instagram</a>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/issues" target="_blank" rel="noopener noreferrer" class="pill-btn pill-issue">💬 Report Bug / Feedback</a>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-links">
+        <a href="privacy.html">Privacy Policy & Terms</a>
+        <span>•</span>
+        <a href="https://github.com/meel-ayush" target="_blank" rel="noopener noreferrer">GitHub (@meel-ayush)</a>
+        <span>•</span>
+        <a href="https://www.linkedin.com/in/ayushmeel" target="_blank" rel="noopener noreferrer">LinkedIn (Ayush Meel)</a>
+      </div>
+      <div>Independent community utility for Parul University students. Not affiliated with or endorsed by Parul University.</div>
+    </footer>
+  </div>
+</body>
+</html>

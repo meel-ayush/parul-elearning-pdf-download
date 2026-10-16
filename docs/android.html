@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Android Setup — Parul University eLearning PDF Download</title>
+  <link rel="icon" type="image/png" href="icons/icon-128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #080C14;
+      --card-bg: rgba(18, 24, 38, 0.8);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(26, 34, 52, 0.95);
+      --accent-blue: #38BDF8;
+      --accent-emerald: #10B981;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-dim: #64748B;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -webkit-tap-highlight-color: transparent;
+    }
+    body {
+      background-color: var(--bg-dark);
+      background-image: 
+        radial-gradient(circle at 10% 10%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 90% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 50% 85%, rgba(56, 189, 248, 0.08) 0%, transparent 50%);
+      background-attachment: fixed;
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .ambient-glow {
+      position: absolute;
+      top: -120px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: clamp(320px, 85vw, 980px);
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(16, 185, 129, 0.15), transparent 70%);
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page-wrapper {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 36px) clamp(40px, 6vw, 80px);
+      position: relative;
+      z-index: 1;
+    }
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(24px, 4vw, 36px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+    .content-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: clamp(24px, 4vw, 48px);
+      align-items: flex-start;
+    }
+    @media (min-width: 960px) {
+      .content-layout {
+        grid-template-columns: 260px 1fr;
+      }
+      .sticky-phone-col {
+        position: sticky;
+        top: 24px;
+        align-self: flex-start;
+        z-index: 10;
+      }
+      .main-steps-col {
+        min-width: 0;
+      }
+    }
+    .phone-mockup-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+    .mockup-caption {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .mockup-caption::before,
+    .mockup-caption::after {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .phone-mockup {
+      width: clamp(220px, 18vw, 255px);
+      aspect-ratio: 1080 / 2340;
+      max-height: calc(100vh - 110px);
+      background: #000000;
+      border-radius: 36px;
+      box-shadow: 0 0 0 6px #1E293B, 0 0 0 8px rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.65);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      margin: 0 auto;
+    }
+    .phone-mockup video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      border-radius: 30px;
+      background: #000000;
+    }
+    .hero {
+      margin-bottom: clamp(24px, 3.5vw, 36px);
+    }
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #34D399 0%, #38BDF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.08rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .browser-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+    }
+    .script-box-card {
+      background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(18, 24, 38, 0.9) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      border-radius: 20px;
+      padding: clamp(20px, 3.5vw, 28px);
+      margin-bottom: clamp(24px, 3.5vw, 36px);
+      box-shadow: 0 14px 40px rgba(16, 185, 129, 0.1);
+    }
+    .script-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .script-box-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #FFFFFF;
+    }
+    .copy-btn {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 999px;
+      padding: 10px 24px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
+      transition: all 0.2s;
+    }
+    .copy-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
+    }
+    .copy-btn:active {
+      transform: translateY(0);
+    }
+    .code-preview {
+      background: #060911;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8rem;
+      color: #34D399;
+      overflow-x: auto;
+      white-space: nowrap;
+      user-select: all;
+      -webkit-user-select: all;
+    }
+    .steps-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 18px;
+      padding: clamp(18px, 3vw, 24px);
+    }
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .step-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .tip-card {
+      background: rgba(56, 189, 248, 0.06);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 14px;
+      padding: 16px;
+      margin-top: 14px;
+      font-size: 0.86rem;
+      color: #BAE6FD;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .highlight-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: #38BDF8;
+      padding: 1px 7px;
+      border-radius: 5px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+    }
+    .creator-card {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(18, 24, 38, 0.95) 100%);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      border-radius: 24px;
+      padding: clamp(24px, 4vw, 36px);
+      margin-top: 36px;
+      margin-bottom: clamp(28px, 4vw, 44px);
+      backdrop-filter: blur(12px);
+      text-align: center;
+    }
+    .creator-badge {
+      display: inline-block;
+      background: rgba(129, 140, 248, 0.15);
+      border: 1px solid rgba(129, 140, 248, 0.3);
+      color: #A5B4FC;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .creator-name {
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .creator-bio {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .creator-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      max-width: 660px;
+      margin: 0 auto 22px;
+      line-height: 1.6;
+    }
+    .creator-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+    .pill-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pill-github {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+    .pill-github:hover {
+      background: #24292F;
+      border-color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-linkedin {
+      background: rgba(10, 102, 194, 0.15);
+      border: 1px solid rgba(10, 102, 194, 0.4);
+      color: #60A5FA;
+    }
+    .pill-linkedin:hover {
+      background: #0A66C2;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-instagram {
+      background: rgba(225, 48, 108, 0.15);
+      border: 1px solid rgba(225, 48, 108, 0.4);
+      color: #F472B6;
+    }
+    .pill-instagram:hover {
+      background: #E1306C;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    .pill-issue {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+    }
+    .pill-issue:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+    }
+    footer {
+      text-align: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--card-border);
+      font-size: 0.82rem;
+      color: var(--text-dim);
+    }
+    footer a {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+  <div class="page-wrapper">
+    <div class="top-nav">
+      <a href="index.html" class="nav-btn">← All Devices</a>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <a href="desktop.html" class="nav-btn">Desktop Guide →</a>
+        <a href="ios.html" class="nav-btn">iPhone & iPad Guide →</a>
+      </div>
+    </div>
+
+    <div class="content-layout">
+      <div class="sticky-phone-col">
+        <div class="phone-mockup-wrapper">
+          <div class="mockup-caption">Walkthrough Video</div>
+          <div class="phone-mockup">
+            <video controls playsinline preload="metadata">
+              <source src="videos/tutorial-android-bookmarklet.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-steps-col">
+        <div class="hero">
+          <div class="platform-pill">🤖 Android Universal Guide</div>
+          <h1 class="hero-title">Download Lecture PDFs directly on <span>Android</span></h1>
+          <p class="hero-subtitle">
+            On Android, this smart script streams the PDF file straight into your device's native Downloads folder.
+          </p>
+          <div class="browser-tags">
+            <span class="tag">Google Chrome</span>
+            <span class="tag">Brave Browser</span>
+            <span class="tag">Opera Mobile</span>
+            <span class="tag">Samsung Internet</span>
+            <span class="tag">Microsoft Edge</span>
+          </div>
+        </div>
+
+        <div class="script-box-card">
+          <div class="script-box-header">
+            <div class="script-box-title">Android Bookmarklet Script</div>
+            <button id="copyBtn" class="copy-btn" onclick="copyScript()">📋 Copy Script</button>
+          </div>
+          <div id="codePreview" class="code-preview">javascript:(function(){function isAllowed(u){try{var p=new URL(u);if(p.protocol!=="https:"||p.username||p.password)return false;var h=p.hostname.toLowerCase();return(h==="edorer-parul-elearning.sgp1.digitaloceanspaces.com"||(h.startsWith("edorer-")&&h.endsWith(".digitaloceanspaces.com"))||h.endsWith(".digitaloceanspaces.com")||h==="elearning.paruluniversity.ac.in"||h.endsWith(".paruluniversity.ac.in")||h==="edorer.com"||h.endsWith(".edorer.com"))}catch(e){return false}}function resolve(r){if(!r||typeof r!=="string")return"";r=r.trim();try{var p=new URL(r,location.href);var keys=["file","pdf","src","url"];for(var k=0;k<keys.length;k++){var val=p.searchParams.get(keys[k]);if(val&&isAllowed(val))return val}if(p.hash){var hi=p.hash.indexOf("?");var hs=hi!==-1?p.hash.slice(hi):p.hash.slice(1);var hp=new URLSearchParams(hs);for(var j=0;j<keys.length;j++){var hval=hp.get(keys[j]);if(hval&&isAllowed(hval))return hval}}if(isAllowed(p.href)&&(p.pathname.indexOf(".pdf")!==-1||p.pathname.indexOf("viewer")!==-1))return p.href}catch(e){}return""}var url=resolve(location.href);if(!url){var ifrs=document.getElementsByTagName("iframe");for(var i=0;i<ifrs.length;i++){url=resolve(ifrs[i].src||ifrs[i].getAttribute("src")||ifrs[i].getAttribute("data")||"");if(url)break}}if(!url){var ngx=document.getElementsByTagName("ngx-extended-pdf-viewer");if(ngx.length>0)url=resolve(ngx[0].getAttribute("src")||ngx[0].getAttribute("data")||ngx[0].getAttribute("file")||"")}if(!url){var embs=document.getElementsByTagName("embed");for(var j=0;j<embs.length;j++){url=resolve(embs[j].src||"");if(url)break}}if(!url){var objs=document.getElementsByTagName("object");for(var k=0;k<objs.length;k++){url=resolve(objs[k].data||objs[k].getAttribute("data")||"");if(url)break}}if(!url){var anc=document.getElementsByTagName("a");for(var l=0;l<anc.length;l++){var href=anc[l].href||anc[l].getAttribute("href")||"";if(href&&(href.indexOf(".pdf")!==-1||href.indexOf("file=")!==-1)){url=resolve(href);if(url)break}}}if(!url)try{var res=performance.getEntriesByType("resource");for(var m=res.length-1;m>=0;m--){var n=res[m].name;if(n&&(n.indexOf("digitaloceanspaces.com")!==-1||n.indexOf(".pdf")!==-1)){url=resolve(n);if(url)break}}}catch(e){}if(!url){alert("⚠️ No PDF detected. Please open the lecture document first.");return}fetch(url).then(function(r){if(!r.ok)throw new Error();return r.blob()}).then(function(b){var bu=URL.createObjectURL(b);var a=document.createElement("a");a.href=bu;var fn="Parul_Lecture.pdf";try{var p=new URL(url);var parts=p.pathname.split("/");var last=parts[parts.length-1];if(last.indexOf(".pdf")!==-1){last=decodeURIComponent(last);if(last.length>37&&last.charAt(8)==="-"&&last.charAt(13)==="-"&&last.charAt(18)==="-"&&last.charAt(23)==="-"&&last.charAt(36)==="-"){last=last.slice(37)}if(last)fn=last}}catch(e){}a.download=fn;(document.body||document.documentElement).appendChild(a);a.click();setTimeout(function(){URL.revokeObjectURL(bu);try{a.remove()}catch(e){}},1000)}).catch(function(){var a=document.createElement("a");a.href=url;a.target="_blank";a.rel="noopener noreferrer";(document.body||document.documentElement).appendChild(a);a.click();setTimeout(function(){try{a.remove()}catch(e){}},300)})})();</div>
+        </div>
+
+        <div class="steps-container">
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">1</div>
+              <div class="step-title">Bookmark Any Page on Your Phone</div>
+            </div>
+            <div class="step-desc">
+              Open Chrome or Brave, tap the <strong>Three Dots (⋮)</strong> at the top right, and tap the <strong>Star (⭐)</strong> icon to create a bookmark.
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">2</div>
+              <div class="step-title">Edit Bookmark & Paste Script</div>
+            </div>
+            <div class="step-desc">
+              Tap <strong>Edit</strong> on the bookmark prompt (or go to <strong>⋮ &gt; Bookmarks &gt; Mobile Bookmarks</strong>). Set the name to something short and quick to type like <span class="highlight-pill">pdf</span>, clear the URL box, and paste the script you copied above into the <strong>URL field</strong>.
+            </div>
+            <div class="tip-card">
+              <span>💡</span>
+              <div>
+                <strong>Recommended Bookmark Name:</strong> Naming it <span class="highlight-pill">pdf</span> makes it effortless to trigger later by typing just 3 letters in Chrome's address bar!
+              </div>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-header">
+              <div class="step-num">3</div>
+              <div class="step-title">Search Bookmark Name & Tap Star (⭐) Result</div>
+            </div>
+            <div class="step-desc">
+              Open your course document on <span class="highlight-pill">elearning.paruluniversity.ac.in</span>. Tap Chrome's <strong>Address Bar</strong> at the top, type the name of your bookmark (e.g. <span class="highlight-pill">pdf</span>), and tap the result with the <strong>Star (⭐)</strong> icon. The script runs instantly and the PDF downloads directly to your device!
+            </div>
+            <div class="tip-card">
+              <span>⭐</span>
+              <div>
+                <strong>Important Chrome Rule:</strong> Do not open the bookmark from the 3-dots Bookmarks menu. In mobile Chrome, bookmarklet scripts only execute when you type the bookmark's name into the top address bar and select the suggestion with the <strong>Star (⭐)</strong> icon.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="creator-card">
+      <div class="creator-badge">🚀 Lead Developer</div>
+      <h3 class="creator-name">Ayush Meel</h3>
+      <p class="creator-bio">CS Undergrad • Cisco CyberOps Certified • Creator of Parul eLearning PDF Download</p>
+      <p class="creator-text">
+        Built with care to help fellow Parul University students study offline, save lectures effortlessly, and never lose access to their course documents. If this tool saves your study time, consider supporting the project:
+      </p>
+      <div class="creator-pills">
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download" target="_blank" rel="noopener noreferrer" class="pill-btn pill-github">⭐ Star on GitHub</a>
+        <a href="https://www.linkedin.com/in/ayushmeel" target="_blank" rel="noopener noreferrer" class="pill-btn pill-linkedin">💼 Connect on LinkedIn</a>
+        <a href="https://www.instagram.com/meel_ayush" target="_blank" rel="noopener noreferrer" class="pill-btn pill-instagram">📸 Follow on Instagram</a>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download/issues" target="_blank" rel="noopener noreferrer" class="pill-btn pill-issue">💬 Report Bug / Feedback</a>
+      </div>
+    </div>
+
+    <footer>
+      <p>Independent community utility for Parul University students. <a href="privacy.html">Privacy Policy</a></p>
+    </footer>
+  </div>
+
+  <script>
+    function copyScript() {
+      var code = document.getElementById("codePreview").innerText;
+      var btn = document.getElementById("copyBtn");
+      navigator.clipboard.writeText(code).then(function() {
+        btn.innerHTML = "✅ Copied to Clipboard!";
+        btn.style.background = "#059669";
+        setTimeout(function() {
+          btn.innerHTML = "📋 Copy Script";
+          btn.style.background = "";
+        }, 2500);
+      }).catch(function() {
+        var ta = document.createElement("textarea");
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        btn.innerHTML = "✅ Copied!";
+        setTimeout(function() {
+          btn.innerHTML = "📋 Copy Script";
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
