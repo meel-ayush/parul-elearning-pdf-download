@@ -44,7 +44,7 @@
       top: -120px;
       left: 50%;
       transform: translateX(-50%);
-      width: clamp(320px, 85vw, 980px);
+      width: clamp(280px, 85vw, 980px);
       height: 300px;
       background: radial-gradient(ellipse, rgba(16, 185, 129, 0.15), transparent 70%);
       filter: blur(90px);
@@ -55,7 +55,7 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 36px) clamp(40px, 6vw, 80px);
+      padding: clamp(16px, 3.5vw, 40px) clamp(12px, 3.5vw, 36px) clamp(36px, 5vw, 80px);
       position: relative;
       z-index: 1;
     }
@@ -63,40 +63,109 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: clamp(24px, 4vw, 36px);
+      margin-bottom: clamp(20px, 4vw, 36px);
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      width: 100%;
+    }
+    .nav-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
     .nav-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       color: var(--text-muted);
       text-decoration: none;
       font-size: 0.88rem;
       font-weight: 600;
-      padding: 8px 18px;
+      padding: 8px 16px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--card-border);
       transition: all 0.2s;
+      white-space: nowrap;
     }
     .nav-btn:hover {
       color: #FFFFFF;
       background: rgba(255, 255, 255, 0.08);
       border-color: rgba(255, 255, 255, 0.2);
     }
+    .hero {
+      text-align: center;
+      margin-bottom: clamp(24px, 4vw, 40px);
+      width: 100%;
+    }
+    .platform-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.12);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #34D399;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      max-width: 100%;
+    }
+    .hero-title {
+      font-size: clamp(1.65rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
+    .hero-title span {
+      background: linear-gradient(135deg, #34D399 0%, #38BDF8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-subtitle {
+      font-size: clamp(0.92rem, 2vw, 1.08rem);
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 660px;
+      margin: 0 auto 18px;
+      overflow-wrap: break-word;
+    }
+    .browser-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .tag {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--card-border);
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
     .content-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: clamp(24px, 4vw, 48px);
+      gap: clamp(24px, 4vw, 44px);
       align-items: flex-start;
+      width: 100%;
     }
     @media (min-width: 960px) {
       .content-layout {
         grid-template-columns: 260px 1fr;
       }
       .sticky-phone-col {
+        position: -webkit-sticky;
         position: sticky;
         top: 24px;
         align-self: flex-start;
@@ -105,6 +174,13 @@
       .main-steps-col {
         min-width: 0;
       }
+    }
+    .sticky-phone-col {
+      align-self: flex-start;
+    }
+    .main-steps-col {
+      min-width: 0;
+      width: 100%;
     }
     .phone-mockup-wrapper {
       display: flex;
@@ -133,6 +209,7 @@
     }
     .phone-mockup {
       width: clamp(220px, 18vw, 255px);
+      max-width: 100%;
       aspect-ratio: 1080 / 2340;
       max-height: calc(100vh - 110px);
       background: #000000;
@@ -151,62 +228,26 @@
       border-radius: 30px;
       background: #000000;
     }
-    .hero {
-      margin-bottom: clamp(24px, 3.5vw, 36px);
-    }
-    .platform-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34D399;
-      padding: 5px 14px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-    .hero-title {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.2;
-      color: #FFFFFF;
-      margin-bottom: 12px;
-    }
-    .hero-title span {
-      background: linear-gradient(135deg, #34D399 0%, #38BDF8 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero-subtitle {
-      font-size: clamp(0.95rem, 2vw, 1.08rem);
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-    .browser-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .tag {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--card-border);
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 0.78rem;
-      color: var(--text-dim);
+    @media (max-width: 600px) {
+      .phone-mockup {
+        width: clamp(180px, 58vw, 230px);
+        max-height: 480px;
+        border-radius: 28px;
+        box-shadow: 0 0 0 4px #1E293B, 0 0 0 6px rgba(255, 255, 255, 0.1), 0 16px 32px rgba(0, 0, 0, 0.65);
+      }
+      .phone-mockup video {
+        border-radius: 24px;
+      }
     }
     .script-box-card {
       background: linear-gradient(180deg, rgba(16, 185, 129, 0.08) 0%, rgba(18, 24, 38, 0.9) 100%);
       border: 1px solid rgba(16, 185, 129, 0.28);
       border-radius: 20px;
-      padding: clamp(20px, 3.5vw, 28px);
-      margin-bottom: clamp(24px, 3.5vw, 36px);
+      padding: clamp(16px, 3.5vw, 28px);
+      margin-bottom: clamp(20px, 3.5vw, 32px);
       box-shadow: 0 14px 40px rgba(16, 185, 129, 0.1);
+      min-width: 0;
+      width: 100%;
     }
     .script-box-header {
       display: flex;
@@ -217,7 +258,7 @@
       gap: 12px;
     }
     .script-box-title {
-      font-size: 1.15rem;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
       font-weight: 800;
       color: #FFFFFF;
     }
@@ -226,12 +267,13 @@
       color: #FFFFFF;
       border: none;
       border-radius: 999px;
-      padding: 10px 24px;
+      padding: 10px 22px;
       font-size: 0.92rem;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
       box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35);
       transition: all 0.2s;
@@ -255,23 +297,29 @@
       white-space: nowrap;
       user-select: all;
       -webkit-user-select: all;
+      max-width: 100%;
+      -webkit-overflow-scrolling: touch;
     }
     .steps-container {
       display: flex;
       flex-direction: column;
       gap: 16px;
       margin-bottom: 32px;
+      width: 100%;
     }
     .step-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 18px;
-      padding: clamp(18px, 3vw, 24px);
+      padding: clamp(16px, 3vw, 24px);
+      min-width: 0;
+      overflow-wrap: break-word;
+      word-break: break-word;
     }
     .step-header {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       margin-bottom: 10px;
     }
     .step-num {
@@ -288,26 +336,29 @@
       flex-shrink: 0;
     }
     .step-title {
-      font-size: 1.05rem;
+      font-size: clamp(0.95rem, 2.5vw, 1.05rem);
       font-weight: 700;
       color: #FFFFFF;
+      overflow-wrap: break-word;
     }
     .step-desc {
       font-size: 0.9rem;
       color: var(--text-muted);
       line-height: 1.6;
+      overflow-wrap: break-word;
     }
     .tip-card {
       background: rgba(56, 189, 248, 0.06);
       border: 1px solid rgba(56, 189, 248, 0.2);
       border-radius: 14px;
-      padding: 16px;
+      padding: 14px 16px;
       margin-top: 14px;
       font-size: 0.86rem;
       color: #BAE6FD;
       display: flex;
       gap: 10px;
       align-items: flex-start;
+      overflow-wrap: break-word;
     }
     .highlight-pill {
       display: inline-block;
@@ -318,16 +369,21 @@
       border-radius: 5px;
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.82rem;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .creator-card {
       background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(18, 24, 38, 0.95) 100%);
       border: 1px solid rgba(129, 140, 248, 0.3);
       border-radius: 24px;
-      padding: clamp(24px, 4vw, 36px);
+      padding: clamp(20px, 4vw, 36px);
       margin-top: 36px;
-      margin-bottom: clamp(28px, 4vw, 44px);
+      margin-bottom: clamp(24px, 4vw, 44px);
       backdrop-filter: blur(12px);
       text-align: center;
+      width: 100%;
+      min-width: 0;
+      overflow-wrap: break-word;
     }
     .creator-badge {
       display: inline-block;
@@ -341,13 +397,13 @@
       margin-bottom: 12px;
     }
     .creator-name {
-      font-size: 1.55rem;
+      font-size: clamp(1.3rem, 3.5vw, 1.55rem);
       font-weight: 800;
       color: #FFFFFF;
       margin-bottom: 4px;
     }
     .creator-bio {
-      font-size: 0.88rem;
+      font-size: clamp(0.82rem, 2vw, 0.88rem);
       color: var(--text-muted);
       margin-bottom: 14px;
     }
@@ -361,19 +417,22 @@
     .creator-pills {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       justify-content: center;
+      width: 100%;
     }
     .pill-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      padding: 10px 20px;
+      padding: 10px 18px;
       border-radius: 999px;
-      font-size: 0.86rem;
+      font-size: 0.85rem;
       font-weight: 700;
       text-decoration: none;
       transition: all 0.2s;
+      max-width: 100%;
     }
     .pill-github {
       background: rgba(255, 255, 255, 0.08);
@@ -426,6 +485,46 @@
       color: var(--text-muted);
       text-decoration: none;
     }
+    @media (max-width: 640px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .nav-group {
+        display: flex;
+        width: 100%;
+        gap: 8px;
+      }
+      .top-nav .nav-btn {
+        flex: 1;
+        text-align: center;
+        padding: 9px 12px;
+        font-size: 0.82rem;
+      }
+      .script-box-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .copy-btn {
+        width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .nav-group {
+        flex-direction: column;
+      }
+      .creator-pills {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .pill-btn {
+        width: 100%;
+      }
+      .step-header {
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
 <body>
@@ -433,9 +532,24 @@
   <div class="page-wrapper">
     <div class="top-nav">
       <a href="index.html" class="nav-btn">← All Devices</a>
-      <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <div class="nav-group">
         <a href="desktop.html" class="nav-btn">Desktop Guide →</a>
         <a href="ios.html" class="nav-btn">iPhone & iPad Guide →</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="platform-pill">🤖 Android Universal Guide</div>
+      <h1 class="hero-title">Download Lecture PDFs directly on <span>Android</span></h1>
+      <p class="hero-subtitle">
+        On Android, this smart script streams the PDF file straight into your device's native Downloads folder.
+      </p>
+      <div class="browser-tags">
+        <span class="tag">Google Chrome</span>
+        <span class="tag">Brave Browser</span>
+        <span class="tag">Opera Mobile</span>
+        <span class="tag">Samsung Internet</span>
+        <span class="tag">Microsoft Edge</span>
       </div>
     </div>
 
@@ -452,21 +566,6 @@
       </div>
 
       <div class="main-steps-col">
-        <div class="hero">
-          <div class="platform-pill">🤖 Android Universal Guide</div>
-          <h1 class="hero-title">Download Lecture PDFs directly on <span>Android</span></h1>
-          <p class="hero-subtitle">
-            On Android, this smart script streams the PDF file straight into your device's native Downloads folder.
-          </p>
-          <div class="browser-tags">
-            <span class="tag">Google Chrome</span>
-            <span class="tag">Brave Browser</span>
-            <span class="tag">Opera Mobile</span>
-            <span class="tag">Samsung Internet</span>
-            <span class="tag">Microsoft Edge</span>
-          </div>
-        </div>
-
         <div class="script-box-card">
           <div class="script-box-header">
             <div class="script-box-title">Android Bookmarklet Script</div>
@@ -545,25 +644,34 @@
     function copyScript() {
       var code = document.getElementById("codePreview").innerText;
       var btn = document.getElementById("copyBtn");
-      navigator.clipboard.writeText(code).then(function() {
-        btn.innerHTML = "✅ Copied to Clipboard!";
-        btn.style.background = "#059669";
-        setTimeout(function() {
-          btn.innerHTML = "📋 Copy Script";
-          btn.style.background = "";
-        }, 2500);
-      }).catch(function() {
-        var ta = document.createElement("textarea");
-        ta.value = code;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand("copy");
-        document.body.removeChild(ta);
-        btn.innerHTML = "✅ Copied!";
-        setTimeout(function() {
-          btn.innerHTML = "📋 Copy Script";
-        }, 2500);
-      });
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(function() {
+          btn.innerHTML = "✅ Copied to Clipboard!";
+          btn.style.background = "#059669";
+          setTimeout(function() {
+            btn.innerHTML = "📋 Copy Script";
+            btn.style.background = "";
+          }, 2500);
+        }).catch(function() {
+          fallbackCopy(code, btn);
+        });
+      } else {
+        fallbackCopy(code, btn);
+      }
+    }
+    function fallbackCopy(code, btn) {
+      var ta = document.createElement("textarea");
+      ta.value = code;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      btn.innerHTML = "✅ Copied!";
+      setTimeout(function() {
+        btn.innerHTML = "📋 Copy Script";
+      }, 2500);
     }
   </script>
 </body>
