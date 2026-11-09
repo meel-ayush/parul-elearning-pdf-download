@@ -605,7 +605,11 @@
       .header{display:flex;align-items:center;justify-content:space-between;padding:13px 16px;border-bottom:1px solid rgba(255,255,255,0.08)}
       @media(prefers-color-scheme:light){.header{border-bottom:1px solid #f1f5f9}}
       .brand-title{font-size:14px;font-weight:800;letter-spacing:-0.02em}
-      .brand-author{font-size:11px;color:#94a3b8;font-weight:500}
+      .brand-author{font-size:11px;color:#94a3b8;font-weight:500;display:flex;align-items:center;gap:4px;margin-top:2px}
+      .brand-author a,.insta-author-link{display:inline-flex;align-items:center;gap:4px;text-decoration:none;transition:transform 120ms ease,filter 120ms ease}
+      .insta-author-link span{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);-webkit-background-clip:text;background-clip:text;display:inline-block;-webkit-text-fill-color:transparent;font-weight:750}
+      .insta-author-link:hover{transform:scale(1.04);filter:brightness(1.15)}
+      .insta-icon-svg{width:12px;height:12px;display:inline-block;vertical-align:middle;flex-shrink:0}
       .close-btn{width:26px;height:26px;display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:50%;background:rgba(255,255,255,0.08);color:inherit;font-size:16px;cursor:pointer;transition:background 120ms ease}
       @media(prefers-color-scheme:light){.close-btn{background:#f1f5f9;color:#0f172a}}
       .close-btn:hover{background:rgba(255,255,255,0.18)}
@@ -633,11 +637,32 @@
       .creator-heading{font-size:11px;color:#94a3b8;margin-bottom:6px;display:flex;align-items:center;gap:5px}
       .creator-heading strong{color:inherit}
       .creator-pills{display:flex;gap:6px;flex-wrap:wrap}
-      .pill{flex:1;min-width:75px;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:6px 10px;border-radius:100px;text-decoration:none;font-size:11px;font-weight:700;color:#ffffff;transition:transform 120ms ease}
+      .pill{flex:1;min-width:70px;display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:6px 10px;border-radius:100px;text-decoration:none;font-size:11px;font-weight:700;color:#ffffff;transition:transform 120ms ease;border:none;cursor:pointer}
       .pill:hover{transform:translateY(-1px)}
+      .pill-sponsor{background:linear-gradient(135deg,#e11d48,#be123c);box-shadow:0 2px 8px rgba(225,29,72,0.35)}
       .pill-linkedin{background:#0077b5}
       .pill-github{background:#24292f}
       .pill-instagram{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+      .sponsor-tray{margin-top:10px;padding:12px;border-radius:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(225,29,72,0.3);display:none}
+      .sponsor-tray.open{display:block}
+      @media(prefers-color-scheme:light){.sponsor-tray{background:#ffffff;border:1px solid rgba(225,29,72,0.35);box-shadow:0 4px 14px rgba(0,0,0,0.06)}}
+      .tray-title{font-size:11px;font-weight:800;color:#f43f5e;margin-bottom:3px;display:flex;align-items:center;gap:5px}
+      .tray-desc{font-size:10px;color:#94a3b8;line-height:1.4;margin-bottom:9px}
+      @media(prefers-color-scheme:light){.tray-desc{color:#64748b}}
+      .upi-row{display:flex;align-items:center;gap:6px;margin-bottom:8px}
+      .upi-chip{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.1);padding:5px 9px;border-radius:8px;font-size:11px;font-family:ui-monospace,monospace;font-weight:700;color:#38bdf8;user-select:all}
+      @media(prefers-color-scheme:light){.upi-chip{background:#f1f5f9;border-color:#cbd5e1;color:#0284c7}}
+      .tray-btn{height:28px;padding:0 10px;border-radius:7px;border:none;font-size:10px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:4px;text-decoration:none;transition:all 120ms ease}
+      .tray-btn-copy{background:rgba(255,255,255,0.12);color:inherit}
+      .tray-btn-copy:hover{background:rgba(255,255,255,0.22)}
+      @media(prefers-color-scheme:light){.tray-btn-copy{background:#e2e8f0;color:#0f172a}}
+      .tray-btn-upi{width:100%;background:#2563eb;color:#fff;margin-bottom:8px}
+      .tray-btn-upi:hover{background:#1d4ed8}
+      .tray-links-row{display:flex;gap:6px}
+      .tray-link{flex:1;height:28px;display:inline-flex;align-items:center;justify-content:center;gap:4px;border-radius:7px;font-size:10px;font-weight:700;text-decoration:none;color:#fff;transition:transform 120ms ease}
+      .tray-link:hover{transform:translateY(-1px)}
+      .tray-gh{background:#24292f}
+      .tray-patreon{background:#ff424d}
     `;
 
     const wrapper = document.createElement("div");
@@ -677,7 +702,15 @@
     brandTitle.textContent = "Parul eLearning PDF Download";
     const brandAuthor = document.createElement("div");
     brandAuthor.className = "brand-author";
-    brandAuthor.textContent = "Crafted by Ayush Meel";
+    brandAuthor.append("Crafted by ");
+    const authorLink = document.createElement("a");
+    authorLink.className = "insta-author-link";
+    authorLink.href = "https://www.instagram.com/meel_ayush";
+    authorLink.target = "_blank";
+    authorLink.rel = "noopener noreferrer";
+    authorLink.title = "Ayush Meel on Instagram (@meel_ayush)";
+    authorLink.innerHTML = `<svg class="insta-icon-svg" viewBox="0 0 24 24" fill="none" stroke="url(#instaGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><defs><linearGradient id="instaGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f09433"/><stop offset="25%" stop-color="#e6683c"/><stop offset="50%" stop-color="#dc2743"/><stop offset="75%" stop-color="#cc2366"/><stop offset="100%" stop-color="#bc1888"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span>Ayush Meel</span>`;
+    brandAuthor.append(authorLink);
     titleWrap.append(brandTitle, brandAuthor);
 
     const closeBtn = document.createElement("button");
@@ -737,7 +770,7 @@
 
     const creatorHeading = document.createElement("div");
     creatorHeading.className = "creator-heading";
-    creatorHeading.innerHTML = "⚡ <strong>Saved you time?</strong> Support the creator:";
+    creatorHeading.innerHTML = "⚡ <strong>Saved your study time?</strong> Support Ayush:";
 
     const creatorPills = document.createElement("div");
     creatorPills.className = "creator-pills";
@@ -752,13 +785,86 @@
       return a;
     }
 
+    const sponsorPillBtn = document.createElement("button");
+    sponsorPillBtn.className = "pill pill-sponsor";
+    sponsorPillBtn.type = "button";
+    sponsorPillBtn.setAttribute("aria-label", "Toggle Sponsor Options");
+    sponsorPillBtn.innerHTML = "❤️ Sponsor";
+
     creatorPills.append(
-      makePill("LinkedIn ↗", "https://www.linkedin.com/in/ayushmeel", "pill-linkedin"),
+      sponsorPillBtn,
       makePill("GitHub ⭐", "https://github.com/meel-ayush/parul-elearning-pdf-download", "pill-github"),
-      makePill("Instagram", "https://www.instagram.com/meel_ayush", "pill-instagram")
+      makePill("LinkedIn ↗", "https://www.linkedin.com/in/ayushmeel", "pill-linkedin")
     );
 
-    creatorBox.append(creatorHeading, creatorPills);
+    const sponsorTray = document.createElement("div");
+    sponsorTray.className = "sponsor-tray";
+
+    const trayTitle = document.createElement("div");
+    trayTitle.className = "tray-title";
+    trayTitle.innerHTML = "<span>💖</span> Support the Upkeep";
+
+    const trayDesc = document.createElement("div");
+    trayDesc.className = "tray-desc";
+    trayDesc.textContent = "Tired of calling classmates or digging through network logs just to get lecture slides? 100% free, client-side & ad-free. Whenever university updates break downloads, I spend late nights fixing them. If this saved you from chasing people for notes before exams, drop a small tip to keep updates coming:";
+
+    const upiRow = document.createElement("div");
+    upiRow.className = "upi-row";
+
+    const upiChip = document.createElement("div");
+    upiChip.className = "upi-chip";
+    upiChip.textContent = "ayushmeel@ptyes";
+
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "tray-btn tray-btn-copy";
+    copyBtn.type = "button";
+    copyBtn.textContent = "Copy UPI";
+    copyBtn.addEventListener("click", () => {
+      const id = "ayushmeel@ptyes";
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(id).then(() => {
+          copyBtn.textContent = "Copied! ✨";
+          setTimeout(() => { copyBtn.textContent = "Copy UPI"; }, 2000);
+        }).catch(() => {
+          prompt("Copy UPI ID:", id);
+        });
+      } else {
+        prompt("Copy UPI ID:", id);
+      }
+    });
+
+    upiRow.append(upiChip, copyBtn);
+
+    const upiIntentA = document.createElement("a");
+    upiIntentA.className = "tray-btn tray-btn-upi";
+    upiIntentA.href = "upi://pay?pa=ayushmeel@ptyes&pn=Ayush%20Meel&cu=INR&tn=Parul%20eLearning%20PDF%20Download%20Support";
+    upiIntentA.textContent = "⚡ Open in any UPI App ↗";
+
+    const trayLinksRow = document.createElement("div");
+    trayLinksRow.className = "tray-links-row";
+
+    const ghLink = document.createElement("a");
+    ghLink.className = "tray-link tray-gh";
+    ghLink.href = "https://github.com/sponsors/meel-ayush";
+    ghLink.target = "_blank";
+    ghLink.rel = "noopener noreferrer";
+    ghLink.textContent = "GitHub Sponsors";
+
+    const patreonLink = document.createElement("a");
+    patreonLink.className = "tray-link tray-patreon";
+    patreonLink.href = "https://patreon.com/meel_ayush";
+    patreonLink.target = "_blank";
+    patreonLink.rel = "noopener noreferrer";
+    patreonLink.textContent = "Patreon";
+
+    trayLinksRow.append(ghLink, patreonLink);
+    sponsorTray.append(trayTitle, trayDesc, upiRow, upiIntentA, trayLinksRow);
+
+    sponsorPillBtn.addEventListener("click", () => {
+      sponsorTray.classList.toggle("open");
+    });
+
+    creatorBox.append(creatorHeading, creatorPills, sponsorTray);
 
     panel.append(header, privacy, bodyWrap, statusEl, creatorBox);
     wrapper.append(panel, hostButton);

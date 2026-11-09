@@ -25,6 +25,7 @@
 8. [Security & Privacy Policy](#security--privacy-policy)
 9. [Author](#author)
 10. [License](#license)
+11. [Sponsor & Support](#sponsor--support)
 
 ---
 
@@ -188,6 +189,37 @@ parul-elearning-pdf-download/
 - **Authorization Unchanged:** This utility does not bypass authentication, decrypt DRM-protected assets, or elevate student privileges. It merely exposes download triggers for educational files that the active student session has already authenticated and fetched.
 - **Content Security Policy Integrity:** Injected DOM HUDs utilize isolated shadow boundaries and inline SVG elements to avoid violating university CSP directives (`script-src`, `connect-src`).
 - **Complete Privacy Policy:** Read the full legal terms and commitment at **[Live Privacy Policy](https://meel-ayush.github.io/parul-elearning-pdf-download/privacy.html)**.
+
+---
+
+<a id="sponsor--support"></a>
+
+## 💖 Support the Upkeep
+
+> *"Remember having to call 5 different classmates or dig through browser network logs just to get your lecture slides?"*
+>
+> Before this tool, those were literally the only two options: beg friends to gather teacher PDFs, or inspect DevTools network requests the night before exams. This downloader turned that nightmare into a clean 1-click offline download — 100% free, client-side, and ad-free.
+>
+> Whenever the university updates their portal and breaks downloads, I spend late nights reverse-engineering fixes so you never lose offline access to course materials. If this saved you the headache of chasing people for slides before exams, consider dropping a small tip to keep it going.
+
+<p align="center">
+  <a href="https://github.com/sponsors/meel-ayush">
+    <img src="https://img.shields.io/badge/Sponsor_on-GitHub-ea4aaa?style=for-the-badge&logo=githubsponsors&logoColor=white" alt="Sponsor on GitHub" height="38"/>
+  </a>
+  &nbsp;&nbsp;
+  <a href="https://patreon.com/meel_ayush">
+    <img src="https://img.shields.io/badge/Support_on-Patreon-FF424D?style=for-the-badge&logo=patreon&logoColor=white" alt="Support on Patreon" height="38"/>
+  </a>
+  &nbsp;&nbsp;
+  <a href="upi://pay?pa=ayushmeel@ptyes&pn=Ayush%20Meel&cu=INR&tn=Support%20Parul%20eLearning%20PDF%20Download">
+    <img src="https://img.shields.io/badge/Direct_UPI-ayushmeel%40ptyes-00BAF2?style=for-the-badge&logo=googlepay&logoColor=white" alt="Direct UPI" height="38"/>
+  </a>
+</p>
+
+<p align="center">
+  ⚡ <b>Direct UPI (0% Platform Fee):</b> <code>ayushmeel@ptyes</code> &nbsp;|&nbsp; 📱 <a href="upi://pay?pa=ayushmeel@ptyes&pn=Ayush%20Meel&cu=INR&tn=Support%20Parul%20eLearning%20PDF%20Download"><b>Open in any UPI App ↗</b></a><br>
+  <sub>Works with Google Pay, PhonePe, Paytm, BHIM, Cred, Navi & all Indian bank apps</sub>
+</p>
 
 ---
 
