@@ -23,6 +23,9 @@
       --text-dim: #64748B;
       --glow-blue: rgba(56, 189, 248, 0.16);
     }
+    html {
+      scroll-behavior: smooth;
+    }
     * {
       box-sizing: border-box;
       margin: 0;
@@ -501,17 +504,140 @@
       filter: brightness(1.15);
     }
 
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: clamp(24px, 4vw, 36px);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-emerald);
+      box-shadow: 0 0 8px var(--accent-emerald);
+    }
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--card-border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+    }
+    .nav-support-btn {
+      background: rgba(244, 63, 94, 0.14) !important;
+      border-color: rgba(244, 63, 94, 0.38) !important;
+      color: #FDA4AF !important;
+      font-weight: 700 !important;
+    }
+    .nav-support-btn:hover {
+      background: rgba(244, 63, 94, 0.25) !important;
+      border-color: rgba(244, 63, 94, 0.65) !important;
+      color: #FFFFFF !important;
+      transform: translateY(-1px);
+    }
+    .header-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .header-support-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.25), rgba(99, 102, 241, 0.25));
+      border: 1px solid rgba(244, 63, 94, 0.45);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 750;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 16px rgba(244, 63, 94, 0.2);
+    }
+    .header-support-pill:hover {
+      transform: translateY(-2px);
+      border-color: rgba(244, 63, 94, 0.75);
+      box-shadow: 0 8px 24px rgba(244, 63, 94, 0.35);
+    }
+    .header-star-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header-star-pill:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text-main);
+      transform: translateY(-2px);
+    }
+    .sponsor-box {
+      scroll-margin-top: 28px;
+    }
   </style>
 </head>
 <body>
   <div class="ambient-glow"></div>
   <div class="page-wrapper">
+    <div class="top-nav">
+      <div class="brand-mini">
+        <span class="status-dot"></span>
+        <span>Universal Access Portal</span>
+      </div>
+      <div class="nav-group">
+        <a href="#support" class="nav-btn nav-support-btn">💖 Support</a>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download" target="_blank" rel="noopener noreferrer" class="nav-btn">⭐ Star</a>
+      </div>
+    </div>
+
     <header>
       <div class="brand-wrap">
         <img src="logo.png" alt="Parul PDF Downloader" class="brand-logo">
       </div>
       <h1 class="hero-title">Download Course Material on <span>Any Device</span></h1>
       <p class="hero-subtitle">Bypass locked LMS viewers and access your lecture slides, syllabus booklets, and reference documents across phone, tablet, or PC.</p>
+      <div class="header-actions">
+        <a href="#support" class="header-support-pill">💖 Support the Upkeep</a>
+        <a href="https://github.com/meel-ayush/parul-elearning-pdf-download" target="_blank" rel="noopener noreferrer" class="header-star-pill">⭐ Star on GitHub</a>
+      </div>
     </header>
 
     <div class="devices-grid">
@@ -575,7 +701,7 @@
       <p class="creator-text">
         Built with care to help fellow Parul University students study offline, save lectures effortlessly, and never lose access to their course documents. If this tool saves your study time, consider supporting the project:
       </p>
-            <div class="sponsor-box">
+            <div class="sponsor-box" id="support">
         <div class="sponsor-box-header">
           <span class="sponsor-heart">💖</span>
           <h4 class="sponsor-title">Support the Upkeep • Keep it Free & Ad-Free</h4>
@@ -636,6 +762,8 @@
 
     <footer>
       <div class="footer-links">
+        <a href="#support">💖 Support</a>
+        <span>•</span>
         <a href="privacy.html">Privacy Policy & Terms</a>
         <span>•</span>
         <a href="https://github.com/meel-ayush" target="_blank" rel="noopener noreferrer">GitHub (@meel-ayush)</a>

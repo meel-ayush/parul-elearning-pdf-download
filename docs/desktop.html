@@ -637,6 +637,24 @@
       filter: brightness(1.15);
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+    .sponsor-box {
+      scroll-margin-top: 28px;
+    }
+    .nav-support-btn {
+      background: rgba(244, 63, 94, 0.14) !important;
+      border-color: rgba(244, 63, 94, 0.38) !important;
+      color: #FDA4AF !important;
+      font-weight: 700 !important;
+    }
+    .nav-support-btn:hover {
+      background: rgba(244, 63, 94, 0.25) !important;
+      border-color: rgba(244, 63, 94, 0.65) !important;
+      color: #FFFFFF !important;
+      transform: translateY(-1px);
+    }
   </style>
 </head>
 <body>
@@ -647,6 +665,7 @@
       <div class="nav-group">
         <a href="android.html" class="nav-btn">Android Guide →</a>
         <a href="ios.html" class="nav-btn">iPhone & iPad Guide →</a>
+        <a href="#support" class="nav-btn nav-support-btn">💖 Support</a>
       </div>
     </div>
 
@@ -890,7 +909,7 @@
       <p class="creator-text">
         Built with care to help fellow Parul University students study offline, save lectures effortlessly, and never lose access to their course documents. If this tool saves your study time, consider supporting the project:
       </p>
-            <div class="sponsor-box">
+            <div class="sponsor-box" id="support">
         <div class="sponsor-box-header">
           <span class="sponsor-heart">💖</span>
           <h4 class="sponsor-title">Support the Upkeep • Keep it Free & Ad-Free</h4>
